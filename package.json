@@ -29,7 +29,7 @@
     "react-native-static-server": "^0.4.2",
     "react-native-webview": "^5.12.0",
     "react-native-zip-archive": "^4.1.1",
-    "rn-fetch-blob": "^0.10.15",
+    "rn-fetch-blob": "https://github.com/naveteam/rn-fetch-blob",
     "stream": "0.0.2",
     "stream-browserify": "^2.0.2",
     "util": "^0.12.0"
@@ -43,13 +43,13 @@
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/runtime": "^7.4.5",
+    "babel-jest": "^24.8.0",
     "babel-plugin-module-resolver": "^3.2.0",
     "babel-plugin-static-fs": "^1.2.0",
     "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "gulp": "^4.0.2",
-    "metro-react-native-babel-preset": "^0.54.1",
-    "babel-jest": "^24.8.0",
     "jest": "^24.8.0",
+    "metro-react-native-babel-preset": "^0.54.1",
     "react-test-renderer": "16.8.6"
   },
   "files": [
