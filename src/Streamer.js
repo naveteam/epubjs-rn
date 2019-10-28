@@ -128,7 +128,7 @@ class EpubStreamer {
 
   filename(bookUrl) {
     let uri = new Uri(bookUrl);
-    return uri.filename.replace(".epub", "");
+    return uri.filename.split('?')[0].replace(".epub", "");
   }
 
   remove(path) {
