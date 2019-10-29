@@ -88,7 +88,7 @@ class EpubStreamer {
       })
       .fetch("GET", bookUrl)
       .then((res) => {
-        const sourcePath = res.path();
+        const sourcePath = typeof res.path === 'function' ? res.path() : res.path;
         const targetPath = `${Dirs.DocumentDir}/${this.root}/${filename}`;
         const url = `${this.serverOrigin}/${filename}/`;
 
