@@ -411,7 +411,7 @@ class Rendition extends Component {
     this.props.onDisplayed && this.props.onDisplayed();
   }
 
-  onShouldStartLoadWithRequestnav(nav) {
+  onShouldStartLoadWithRequest(nav) {
     if (!nav.url.includes('http') || (nav.mainDocumentURL && nav.mainDocumentURL.includes(nav.url))) {
       return true
     }
@@ -459,7 +459,7 @@ class Rendition extends Component {
           automaticallyAdjustContentInsets={false}
           originWhitelist={['*']}
           allowsLinkPreview={false}
-          onShouldStartLoadWithRequestnav={this.onShouldStartLoadWithRequestnav}
+          onShouldStartLoadWithRequest={this.onShouldStartLoadWithRequest}
         />
         {!this.state.loaded ? loader : null}
       </View>
