@@ -348,7 +348,7 @@ window.onerror = function (message, file, line, col, error) {
                   isLongPress = false;
                   return;
                 }
-                sendMessage({method:"press", position: currentPosition, cfi: cfi});
+                sendMessage({method:"press", position: currentPosition, cfi: cfi, href: target.getAttribute('href')});
               }, 10);
             }
           }

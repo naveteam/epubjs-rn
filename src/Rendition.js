@@ -7,6 +7,7 @@ import {
   Dimensions,
   Platform,
   AppState,
+  Linking,
   TouchableOpacity
 } from "react-native";
 
@@ -341,6 +342,11 @@ class Rendition extends Component {
         break;
       }
       case "press": {
+        if (decoded.href && decoded.href.includes('http')) {
+          console.log('external link')
+          return Linking.openURL(decoded.href)
+        }
+
         this.props.onPress && this.props.onPress(decoded.cfi, decoded.position, this);
         break;
       }
@@ -405,6 +411,14 @@ class Rendition extends Component {
     this.props.onDisplayed && this.props.onDisplayed();
   }
 
+  onShouldStartLoadWithRequestnav(nav) {
+    if (!nav.url.includes('http') || (nav.mainDocumentURL && nav.mainDocumentURL.includes(nav.url))) {
+      return true
+    }
+
+    return false
+  }
+
   render() {
     let loader = (
       <TouchableOpacity onPress={() => this.props.onPress('')} style={styles.loadScreen}>
@@ -445,6 +459,7 @@ class Rendition extends Component {
           automaticallyAdjustContentInsets={false}
           originWhitelist={['*']}
           allowsLinkPreview={false}
+          onShouldStartLoadWithRequestnav={this.onShouldStartLoadWithRequestnav}
         />
         {!this.state.loaded ? loader : null}
       </View>
